@@ -2,8 +2,6 @@
 
 A Power BI dashboard that analyzes Malaysia’s residential property listings using a dataset I **web-scraped myself** from **iProperty** using **Python Scrapy**. The project focuses on **market segmentation (Low / Medium / High)**, location-based pricing, and property-type price comparisons to support data-driven insights for buyers, analysts, and researchers.
 
-> **Note / Disclaimer**: This dataset was collected via web scraping for academic/portfolio purposes. Please ensure scraping complies with iProperty’s Terms of Service and robots.txt, and avoid re-uploading raw scraped content if it violates site policies.
-
 ---
 
 ## Dashboard Preview
