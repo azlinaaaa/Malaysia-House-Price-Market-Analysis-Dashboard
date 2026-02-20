@@ -1,5 +1,3 @@
-# Malaysia-House-Price-Market-Analysis-Dashboard
-
 # Malaysia House Price Market Analysis Dashboard (Power BI)
 
 A Power BI dashboard that analyzes Malaysia’s residential property listings using a dataset I **web-scraped myself** from **iProperty** using **Python Scrapy**. The project focuses on **market segmentation (Low / Medium / High)**, location-based pricing, and property-type price comparisons to support data-driven insights for buyers, analysts, and researchers.
