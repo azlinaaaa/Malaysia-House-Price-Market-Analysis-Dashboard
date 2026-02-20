@@ -95,6 +95,8 @@ This improves:
 
 ## Power BI Dashboard Design
 
+![Malaysia House Price Market Analysis Dashboard](https://github.com/azlinaaaa/Sales-Dashboard/blob/63dc9d62d9ffec78cc57eecda81705eb39a2652f/image.png)
+
 ### Filters / Slicers (Left Panel)
 
 * **Location** slicer: explore specific areas
