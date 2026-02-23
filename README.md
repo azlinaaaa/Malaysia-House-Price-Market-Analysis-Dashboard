@@ -196,6 +196,5 @@ This segmentation supports:
 ## Author
 
 **Norazlina Shariff**
-Data Analytics / Data Science Portfolio Project
 
 ---
