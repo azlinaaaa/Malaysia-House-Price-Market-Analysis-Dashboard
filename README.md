@@ -119,7 +119,6 @@ These make the segmentation logic transparent and easy to interpret.
 
 ---
 
-## Visuals Explanation (What Each Chart Means)
 
 ### 1) Listings by Segment (Bar Chart)
 
