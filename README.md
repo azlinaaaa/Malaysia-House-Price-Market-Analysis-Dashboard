@@ -1,199 +1,297 @@
 # Malaysia House Price Market Analysis Dashboard (Power BI)
 
-A Power BI dashboard that analyzes Malaysia’s residential property listings using a dataset I **web-scraped myself** from **iProperty** using **Python Scrapy**. The project focuses on **market segmentation (Low / Medium / High)**, location-based pricing, and property-type price comparisons to support data-driven insights for buyers, analysts, and researchers.
+A comprehensive **Power BI dashboard** analyzing Malaysia’s residential property market using a dataset I web-scraped from **iProperty** with **Python Scrapy**.
+
+This project focuses on:
+
+* 📊 Price Segmentation (Low / Medium / High)
+* 📍 Location-Based Median Pricing
+* 🏘 Property Type Price Comparison
+* 🧩 Location–Segment Distribution Analysis
+
+The goal is to transform raw property listings into actionable market insights for buyers, investors, and analysts.
 
 ---
 
-## Dashboard Preview
+# 📌 Dashboard Overview
 
-**Title:** *Malaysia House Price Market Analysis Dashboard*
-Key highlights shown in the dashboard:
+### 🔢 Total Listings
 
-* **Total Listings:** ~**51.23K**
-* **Price Segment Thresholds (RM):**
-
-  * **Low:** < **490,000**
-  * **Medium:** < **660,000**
-  * **High:** ≥ **900,000** (others beyond Low/Medium)
+**Total Houses: ~51.23K listings**
 
 ---
 
-## Project Objectives
+## 💰 Price Segmentation Thresholds (RM)
+
+| Segment   | Price Range             |
+| --------- | ----------------------- |
+| 🟢 Low    | < RM 490,000            |
+| 🟡 Medium | RM 490,000 – RM 660,000 |
+| 🔵 High   | ≥ RM 900,000            |
+
+These thresholds are displayed directly on the dashboard for transparency and interpretability.
+
+---
+
+# 🎯 Project Objectives
 
 This project aims to:
 
-1. **Segment the Malaysia housing market** into Low / Medium / High price ranges.
-2. Analyze **median house price** by:
+* Segment Malaysia’s housing market into Low / Medium / High categories.
+* Analyze **Median House Price** by:
 
-   * **Location**
-   * **Property type**
-3. Provide an interactive dashboard for exploring:
+  * 📍 Location
+  * 🏘 Property Type
+* Provide an interactive dashboard to explore:
 
-   * Which locations have higher median prices
-   * Which property types are generally more expensive
-   * How listings are distributed across price segments
-
----
-
-## Data Source (Web Scraping)
-
-### Website
-
-* **iProperty** (Malaysia property listing platform)
-
-### Scraping Tool
-
-* **Python Scrapy**
-* Data collected includes common listing attributes such as:
-
-  * Listing title / house name
-  * Location (state/city/area)
-  * Property type
-  * Price
-  * Bedrooms / bathrooms
-  * Built-up / land size (if available)
-  * Carpark
-  * Furnishing (if available)
+  * Which locations are premium vs affordable
+  * Which property types are most expensive
+  * How listings are distributed across price segments
+  * Which locations dominate certain price segments
 
 ---
 
-## Data Preparation & Cleaning
+# 📊 Dashboard Components
 
-After scraping, the raw dataset required cleaning to make it analysis-ready.
+## 🔎 Filters / Slicers
 
-### 1) Handling Missing Values (Null Carpark)
+Users can dynamically filter the dashboard by:
 
-Many listings had missing values in **Carpark**.
-To reduce bias from missing data, I filled nulls using the **median carpark value** (robust against outliers).
-
-**Approach**
-
-* Compute median of Carpark (excluding nulls)
-* Replace null Carpark with the median
-
-### 2) Separating House Name and Location
-
-Some listings contained mixed text (e.g., house name + location together).
-I separated and standardized them into clearer fields such as:
-
-* **HouseName** (project/house name)
-* **Location** (area/city/state depending on available structure)
-
-This improves:
-
-* Filtering accuracy
-* Location-based aggregation (median price by location)
-* Cleaner visuals and slicers in Power BI
-
-### 3) Standardizing Price
-
-* Ensured **Price** is numeric (RM)
-* Removed symbols/commas and converted text to numbers
-* Enabled correct aggregation and segmentation logic
+* Location (e.g., Ampang, Alor Setar, Putrajaya, Kota Kinabalu, etc.)
+* Property Type (Terrace, Condominium, Bungalow, Apartment, etc.)
+* Price Segment (Low / Medium / High)
 
 ---
 
-## Power BI Dashboard Design
+## 📌 Key KPI Cards
 
-![Malaysia House Price Market Analysis Dashboard](https://github.com/azlinaaaa/Malaysia-House-Price-Market-Analysis-Dashboard/blob/9fafc884470a8d3e3b9e5f69af52e56fd177d177/Malaysia%20House%20Price%20Market%20Analysis%20Dashboard.png)
+Top-level dashboard metrics include:
 
+* 🏠 **Total House Listings**
+* 💵 Low Price Threshold (RM 490K)
+* 💵 Medium Price Threshold (RM 660K)
+* 💵 High Price Threshold (RM 900K)
 
-### Filters / Slicers (Left Panel)
-
-* **Location** slicer: explore specific areas
-* **Property type** slicer: compare terrace, condo, apartment, etc.
-* **Price segment** slicer: focus on Low / Medium / High
-
----
-
-## Key Metrics (Top Cards)
-
-The dashboard includes KPI cards for quick context:
-
-* **Total House**: total number of listings in the filtered view
-* **Low Price Threshold**
-* **Medium Price Threshold**
-* **High Price Threshold**
-
-These make the segmentation logic transparent and easy to interpret.
+These KPIs make the segmentation logic clear and business-friendly.
 
 ---
 
+## 📊 1) Listings by Segment (Bar Chart)
 
-### 1) Listings by Segment (Bar Chart)
+Shows listing counts across:
 
-Shows the **count of listings** in each segment (Low / Medium / High).
+* Low
+* Medium
+* High
+
 Purpose:
 
 * Understand market composition
-* Identify which segment dominates the listings
-
-### 2) Segment Distribution (Pie Chart)
-
-Shows the **percentage share** of each segment.
-Purpose:
-
-* Quick view of market balance
-* Supports high-level storytelling in reports
-
-### 3) Median Price by Location (Bar Chart)
-
-Ranks locations by **median price** (not average, to reduce outlier impact).
-Purpose:
-
-* Identify premium and affordable locations
-* Compare location performance fairly even with extreme values
-
-### 4) Median Price by Type (Bar Chart)
-
-Compares **property types** using median price.
-Purpose:
-
-* See which property categories tend to be more expensive
-* Useful for buyers/investors targeting certain property types
-
-### 5) Location–Segment Breakdown (Treemap)
-
-A treemap that combines **location + segment** to show which areas contribute more listings per segment.
-Purpose:
-
-* Spot hotspots where “High” listings concentrate
-* Compare segment dominance by location visually
+* Identify dominant price segments
 
 ---
 
-## Price Segmentation Logic (Low / Medium / High)
+## 🥧 2) Segment Distribution (Pie Chart)
 
-The project uses threshold-based segmentation:
+Displays percentage breakdown of:
 
-* **Low**: Price < **RM 490,000**
-* **Medium**: Price < **RM 660,000**
-* **High**: Price ≥ **RM 900,000** (or anything beyond Low/Medium)
+* Low
+* Medium
+* High
 
-This segmentation supports:
+Purpose:
 
-* Market grouping
-* Easier storytelling and comparison
-* Cleaner drilldowns in visuals
-
----
-
-## Tools & Technologies
-
-* **Python**
-
-  * Scrapy (web scraping)
-  * Data preprocessing (cleaning, formatting)
-* **Power BI**
-
-  * Data model + dashboard visuals
-  * DAX measures/columns for segmentation & KPIs
-
+* Quick market balance overview
+* Executive-level storytelling
 
 ---
 
-## Author
+## 📍 3) Median Price by Location (Bar Chart)
 
-**Norazlina Shariff**
+Analyzes median price across locations such as:
+
+* Ulu Langat
+* Ulu Tiram
+* Putrajaya
+* Ayer Keroh
+* Yan
+* Melaka
+* Wakaf Bharu
+* and more
+
+Why Median (not average)?
+
+* Reduces impact of extreme outliers
+* Provides more realistic pricing representation
+
+Purpose:
+
+* Identify premium areas
+* Compare affordability across locations
 
 ---
+
+## 🏘 4) Median Price by Type (Bar Chart)
+
+Compares property types including:
+
+* Bungalow
+* Semi-Detached
+* Cluster House
+* 1–4 Storey Terrace / Link
+* Condominium
+* Serviced Residence
+* Townhouse
+* Apartment
+
+Purpose:
+
+* Understand which property types command higher prices
+* Assist buyers and investors in targeting specific categories
+
+---
+
+## 🧩 5) Location–Segment Breakdown (Treemap)
+
+Visualizes how each location distributes across:
+
+* High
+* Medium
+* Low
+
+Example locations include:
+
+* Kuching
+* Kota Kinabalu
+* Iskandar Puteri
+* Putrajaya
+* Ayer Keroh
+
+Purpose:
+
+* Spot “High-price hotspots”
+* Compare segment dominance by area
+* Understand regional market structure
+
+---
+
+# 🧹 Data Source & Preparation
+
+## 🌐 Data Source
+
+**Platform:** iProperty Malaysia
+**Scraping Tool:** Python Scrapy
+
+Collected attributes include:
+
+* Listing Title / House Name
+* Location (Area / City / State)
+* Property Type
+* Price
+* Bedrooms
+* Bathrooms
+* Built-up Size
+* Land Size
+* Carpark
+* Furnishing
+
+---
+
+# 🧼 Data Cleaning & Transformation
+
+## 1️⃣ Handling Missing Values (Carpark)
+
+Many listings had null values for Carpark.
+
+To reduce bias:
+
+* Calculated median Carpark value
+* Replaced null values with median
+* Chosen because median is robust to outliers
+
+---
+
+## 2️⃣ Separating House Name & Location
+
+Some listings contained mixed text (e.g., project name + location).
+
+I separated them into structured columns:
+
+* `HouseName`
+* `Location`
+
+Benefits:
+
+* More accurate filtering
+* Cleaner aggregation (Median by Location)
+* Better slicer usability in Power BI
+
+---
+
+## 3️⃣ Standardizing Price
+
+* Removed RM symbols & commas
+* Converted to numeric format
+* Enabled accurate aggregation
+* Enabled segmentation logic using DAX
+
+---
+
+# 🧮 Segmentation Logic (DAX Concept)
+
+```
+Low: Price < 490,000
+Medium: 490,000 ≤ Price < 660,000
+High: Price ≥ 900,000
+```
+
+Used for:
+
+* Calculated columns
+* KPI Cards
+* Segment-based visuals
+* Treemap breakdown
+
+---
+
+# 🎨 Dashboard Design
+
+* Dark theme background
+* Blue–teal accents
+* Clean KPI cards
+* Structured layout panels
+* Business-ready storytelling visuals
+
+Designed for:
+
+* Analysts
+* Real estate investors
+* Buyers
+* Market researchers
+
+---
+
+# 🛠 Tools & Technologies
+
+## Python
+
+* Scrapy (Web Scraping)
+* Pandas (Data Cleaning)
+* Data preprocessing
+
+## Power BI
+
+* Data Modeling
+* DAX Measures & Calculated Columns
+* Interactive Visual Design
+* Market Segmentation Logic
+
+---
+
+# 📈 Business Impact
+
+* Smarter property investment decisions
+* Identification of premium vs affordable zones
+* Clear understanding of Malaysia’s housing market structure
+* Data-driven segmentation insights
+
