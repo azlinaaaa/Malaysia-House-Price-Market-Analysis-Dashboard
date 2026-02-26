@@ -15,6 +15,9 @@ The goal is to transform raw property listings into actionable market insights f
 
 # 📌 Dashboard Overview
 
+![Malaysia House Price Market Analysis Dashboard](https://raw.githubusercontent.com/azlinaaaa/Malaysia-House-Price-Market-Analysis-Dashboard/ad92b6862eb87591e698e14bc2804315b32b326b/Malaysia%20House%20Price%20Market%20Analysis%20Dashboard.png)
+
+
 ### 🔢 Total Listings
 
 **Total Houses: ~51.23K listings**
@@ -111,15 +114,15 @@ Purpose:
 Analyzes median price across locations such as:
 
 * Ulu Langat
+* Ulu Melaka
 * Ulu Tiram
-* Putrajaya
-* Ayer Keroh
-* Yan
+* Ulu Yam
+* Umbai
 * Melaka
 * Wakaf Bharu
 * and more
 
-Why Median (not average)?
+Reason why Used median instead of average
 
 * Reduces impact of extreme outliers
 * Provides more realistic pricing representation
@@ -184,7 +187,7 @@ Purpose:
 
 Collected attributes include:
 
-* Listing Title / House Name
+* House Name
 * Location (Area / City / State)
 * Property Type
 * Price
@@ -193,7 +196,7 @@ Collected attributes include:
 * Built-up Size
 * Land Size
 * Carpark
-* Furnishing
+* Furnishing Status
 
 ---
 
@@ -256,7 +259,7 @@ Used for:
 
 # 🎨 Dashboard Design
 
-* Dark theme background
+* Light theme background
 * Blue–teal accents
 * Clean KPI cards
 * Structured layout panels
